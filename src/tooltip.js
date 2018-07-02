@@ -21,12 +21,11 @@ function positionTooltip(event, anchor, tooltip) {
     var topClip = top - tooltipHeight - 5;
     var rightClip = left + tooltipWidth - win.innerWidth;
 
-
     if(rightClip > 0)
         left -= tooltipWidth - 5;
 
-    if(topClip < 0)
-        top += tooltipHeight*2 - 5;
+    // if(topClip < 0)
+    //     top += tooltipHeight*2 - 5;
 
     tooltip.style.left = left + 'px';
     tooltip.style.top =  top + 'px';
