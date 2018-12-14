@@ -1,17 +1,80 @@
 
+// .ractive-tooltip
+//     position absolute
+//     display table
+
+//     padding 0.5em
+
+//     color #fff
+//     background #000
+//     box-shadow 0 2px 2px rgba(0,0,0,0.1)
+//     border-radius 5px
+//     white-space nowrap
+//     z-index 99999
+
+//     font-style normal
+//     text-transform none
+//     pointer-events none
+    
+$tooltip_tail_corner = 8px
+$tooltip_background_color = #ffffff
+$tooltip_shadow = 0px 0px 10px 2px rgba(0,0,0,0.08)
 .ractive-tooltip
     position absolute
-    display table
-
-    padding 0.5em
-
-    color #fff
-    background #000
-    box-shadow 0 2px 2px rgba(0,0,0,0.1)
-    border-radius 5px
-    white-space nowrap
     z-index 99999
-
     font-style normal
     text-transform none
     pointer-events none
+    // new
+    border-radius 0px
+    white-space normal
+    max-width 350px
+    display flex
+    background-color transparent
+    padding 0
+    box-shadow none
+    &.ractive-tooltip-top
+      flex-direction column
+      &.ractive-tooltip-left
+        align-items flex-start
+        .ractive-tooltip-tail
+          border-left: $tooltip_tail_corner solid transparent;
+          border-right: $tooltip_tail_corner solid transparent;
+          border-top: $tooltip_tail_corner solid $tooltip_background_color;
+          left $tooltip_tail_corner
+      &.ractive-tooltip-right
+        align-items flex-end
+        .ractive-tooltip-tail
+          border-left: $tooltip_tail_corner solid transparent;
+          border-right: $tooltip_tail_corner solid transparent;
+          border-top: $tooltip_tail_corner solid $tooltip_background_color;
+          right $tooltip_tail_corner
+    &.ractive-tooltip-bottom
+      flex-direction column-reverse
+      &.ractive-tooltip-left
+        align-items flex-start
+        .ractive-tooltip-tail
+          border-left: $tooltip_tail_corner solid transparent;
+          border-right: $tooltip_tail_corner solid transparent;
+          border-bottom: $tooltip_tail_corner solid $tooltip_background_color;
+          left $tooltip_tail_corner
+      &.ractive-tooltip-right
+        align-items flex-end
+        .ractive-tooltip-tail
+          border-left: $tooltip_tail_corner solid transparent;
+          border-right: $tooltip_tail_corner solid transparent;
+          border-bottom: $tooltip_tail_corner solid $tooltip_background_color;
+          right $tooltip_tail_corner
+    .ractive-tooltip-body
+      white-space normal
+      padding 0.5em
+      background-color $tooltip_background_color
+      color #333333
+      box-shadow $tooltip_shadow
+    .ractive-tooltip-tail
+      background-color transparent
+      width 0
+      height 0
+      position relative
+      
+
