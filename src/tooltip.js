@@ -103,8 +103,8 @@ function tooltipDecorator(node, content) {
         update: function(newContent) {
             content = newContent;
 
-            if(tooltip)
-                tooltip.textContent = content;
+            if(tooltip && tooltip.querySelector('.ractive-tooltip-body'))
+                tooltip.querySelector('.ractive-tooltip-body').textContent = content;
 
             if((!content || content.length === 0) && tooltip && tooltip.parentNode)
                 tooltip.parentNode.removeChild(tooltip);
